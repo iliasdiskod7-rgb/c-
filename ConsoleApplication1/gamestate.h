@@ -18,6 +18,8 @@ private:
 
 public:
     // Καθολικές μεταβλητές για την κίνηση της κάμερας και το debugging
+    enum status_t {STATUS_MENU,STATUS_PLAYING};
+	status_t m_status = STATUS_MENU;
     float m_global_offset_x = 0.0f;
     float m_global_offset_y = 0.0f;
     bool m_debugging = false;

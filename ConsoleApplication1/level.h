@@ -5,6 +5,7 @@
 #include <vector>
 
 class Level : public GameObject {
+
     // STL Container για τα κελιά (Πολυμορφισμός με δείκτες)
     std::vector<class Cell*> m_cells;
     class Goal* m_goal = nullptr;

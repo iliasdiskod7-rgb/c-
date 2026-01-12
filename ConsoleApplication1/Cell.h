@@ -1,28 +1,25 @@
 #pragma once
 #include "gameobject.h"
-#include "util.h" // Για το struct Box
+#include "util.h"
 #include <sgg/graphics.h>
 
 class Cell : public GameObject, public Box {
 public:
+    // Μεταβλητές
     bool m_is_obstacle = false;
+    int m_id;
+    static int m_id_generator;
+
+    // Μεταβλητές για το εφέ
+    float m_destruction_anim = 0.0f;
+    bool m_is_fading = false;
     graphics::Brush m_brush;
 
-    Cell(float x, float y, float size) : GameObject("Cell") {
-        m_pos_x = x;
-        m_pos_y = y;
-        m_width = size;
-        m_height = size;
-    }
+    // Constructor (Μόνο δήλωση)
+    Cell(float x, float y, float size);
 
-    void draw() override {
-        // Αν είναι εμπόδιο, το βάφουμε σκούρο, αλλιώς ανοιχτό
-        m_brush.fill_color[0] = m_is_obstacle ? 0.2f : 0.8f;
-        m_brush.fill_color[1] = m_is_obstacle ? 0.2f : 0.8f;
-        m_brush.fill_color[2] = m_is_obstacle ? 0.2f : 0.8f;
-        m_brush.fill_opacity = 1.0f;
-        m_brush.outline_opacity = 0.5f; // Περίγραμμα για να φαίνεται το grid
-
-        graphics::drawRect(m_pos_x, m_pos_y, m_width, m_height, m_brush);
-    }
+    // Μέθοδοι (Μόνο δηλώσεις)
+    void init() override;
+    void update(float dt) override;
+    void draw() override;
 };
