@@ -18,11 +18,16 @@ private:
 
 public:
     // Καθολικές μεταβλητές για την κίνηση της κάμερας και το debugging
-    enum status_t {STATUS_MENU,STATUS_PLAYING};
+    enum status_t {STATUS_MENU,STATUS_PLAYING,STATUS_SETTINGS};
 	status_t m_status = STATUS_MENU;
     float m_global_offset_x = 0.0f;
     float m_global_offset_y = 0.0f;
+    bool m_play_hover = false;
     bool m_debugging = false;
+    int m_max_levels = 3;
+    bool m_settings_hover = false;
+    int m_current_level_count = 0;
+    bool m_victory = false;
 
     // Δείκτες στον παίκτη και το επίπεδο
     class Player* m_player = nullptr;
