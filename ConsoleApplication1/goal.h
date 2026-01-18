@@ -17,7 +17,7 @@ public:
     }
 
     void init() override {
-        m_brush_goal.fill_color[0] = 0.2f; // Μπλε χρώμα
+        m_brush_goal.fill_color[0] = 0.2f; 
         m_brush_goal.fill_color[1] = 0.2f;
         m_brush_goal.fill_color[2] = 1.0f;
         m_brush_goal.fill_opacity = 1.0f;
